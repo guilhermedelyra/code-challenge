@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Guilherme de Lyra <guilyra12@gmail.com>"]
+include = ["db_specification/order_details.csv"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.0.1"
+pymongo = "^3.12.0"
+pandas = "^1.3.1"
+SQLAlchemy = "^1.4.22"
+psycopg2 = "^2.9.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+yapf = "^0.31.0"
+flake8 = "^3.9.2"
+
+[tool.poetry.scripts]
+import_csv = "app.import_csv:call_import"
+import_postgres = "app.import_postgres:postgres_to_json"
+example_queries = "app.example_queries:example_queries"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
